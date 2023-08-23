@@ -21,7 +21,7 @@ import ChatMessages from "./ChatMessages";
 import { MessagesContext } from "../context/messages";
 
 interface BotProps extends HTMLAttributes<HTMLDivElement> {
-	user: Session;
+	user?: Session;
 }
 
 const Bot: FC<BotProps> = ({
