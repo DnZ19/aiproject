@@ -21,13 +21,10 @@ import ChatMessages from "./ChatMessages";
 import { MessagesContext } from "../context/messages";
 
 interface BotProps extends HTMLAttributes<HTMLDivElement> {
-	user?: Session;
+	user: Session;
 }
 
-const Bot: FC<BotProps> = ({
-	user,
-	...props
-}: BotProps) => {
+export default function Bot({ user }: Session) {
 	const textareaRef = useRef<HTMLTextAreaElement | null>(
 		null
 	);
@@ -173,6 +170,6 @@ const Bot: FC<BotProps> = ({
 			)}
 		</div>
 	);
-};
+}
 
-export default Bot;
+//export default Bot;
