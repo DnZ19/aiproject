@@ -20,7 +20,8 @@ import { Message } from "../lib/validators/message";
 import ChatMessages from "./ChatMessages";
 import { MessagesContext } from "../context/messages";
 
-interface BotProps extends HTMLAttributes<HTMLDivElement> {
+interface BotProps
+	extends FC<HTMLAttributes<HTMLDivElement>> {
 	user: Session;
 }
 
