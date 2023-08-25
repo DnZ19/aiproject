@@ -21,9 +21,7 @@ import ChatMessages from "./ChatMessages";
 import { MessagesContext } from "../context/messages";
 
 interface BotProps
-	extends FC<HTMLAttributes<HTMLDivElement>> {
-	user: Session;
-}
+	extends FC<HTMLAttributes<HTMLDivElement>> {}
 
 export default function Bot({ user }: Session) {
 	const textareaRef = useRef<HTMLTextAreaElement | null>(
