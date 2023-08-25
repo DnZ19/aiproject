@@ -145,7 +145,7 @@ export default function Bot({ user }: Session) {
 								}}
 								value={input}
 								onChange={(e) => setInput(e.target.value)}
-								autoFocus
+								//autoFocus
 								placeholder="Ask me something...."
 								className="peer disabled:opacity-50 pr-14 pl-4 resize-none block w-full border-0 bg-zinc-100 py-1.5 text-gray-900 focus: ring-0 text-sm sm:leading-6 z-40"
 								style={{ width: "100%", maxWidth: "100%" }}
