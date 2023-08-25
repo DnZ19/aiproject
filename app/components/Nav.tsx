@@ -3,7 +3,7 @@
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-import AiLogo from "public/favicon-32x32.png";
+import AiLogo from "public/bot.png";
 
 export default function Nav({ user }: Session) {
 	return (

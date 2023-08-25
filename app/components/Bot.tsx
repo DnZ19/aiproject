@@ -103,7 +103,7 @@ export default function Bot({ user }: Session) {
 	});
 
 	return (
-		<div className="flex flex-col items-center mt-12 w-screen">
+		<div className="flex flex-col items-center mt-8 w-auto">
 			{!user && (
 				<div className="flex flex-col items-center">
 					<p className="bg-teal-600 text-white py-2 px-4 rounded-md mx-8 pb-12">

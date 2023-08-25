@@ -25,7 +25,7 @@ export default async function RootLayout({
 				<body
 					suppressHydrationWarning={true}
 					className=" flex flex-col items-center">
-					<div className=" flex flex-col items-center max-w-8xl">
+					<div className=" flex flex-col items-center w-auto max-w-8xl">
 						<Nav
 							user={session?.user}
 							expires={session?.expires as string}

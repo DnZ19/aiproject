@@ -32,7 +32,7 @@ const ChatMessages: FC<ChatMessageProps> = ({
 							className={cn(
 								"flex flex-col space-y-2 text-sm max-w-xs mx-2 overflow-hidden",
 								{
-									"bg-blue-200 text-gray-400 px-4 py-1 rounded-md":
+									"bg-blue-200 text-gray-400 px-4 py-1 rounded-md w-28":
 										message.isUserMessage,
 									"bg-gray-200 text-gray-900 px-4 py-1 rounded-md":
 										!message.isUserMessage,
