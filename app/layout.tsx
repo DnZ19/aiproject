@@ -33,8 +33,8 @@ export default async function RootLayout({
 						{children}
 
 						<Bot
-							user={session?.user}
-							expires={session?.expires as string}
+						// user={session?.user}
+						// expires={session?.expires as string}
 						/>
 					</div>
 				</body>
