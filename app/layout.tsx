@@ -1,3 +1,4 @@
+import Head from "next/head";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Bot from "./components/Bot";
@@ -20,25 +21,33 @@ export default async function RootLayout({
 	//console.log(session);
 
 	return (
-		<html lang="en">
-			<Providers>
-				<body
-					suppressHydrationWarning={true}
-					className=" flex flex-col items-center">
-					<div className=" flex flex-col items-center w-auto max-w-8xl">
-						<Nav
-							user={session?.user}
-							expires={session?.expires as string}
-						/>
-						{children}
+		<>
+			<Head>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0"
+				/>
+			</Head>
+			<html lang="en">
+				<Providers>
+					<body
+						suppressHydrationWarning={true}
+						className=" flex flex-col items-center">
+						<div className=" flex flex-col items-center w-auto max-w-8xl">
+							<Nav
+								user={session?.user}
+								expires={session?.expires as string}
+							/>
+							{children}
 
-						<Bot
-							user={session?.user}
-							expires={session?.expires as string}
-						/>
-					</div>
-				</body>
-			</Providers>
-		</html>
+							<Bot
+								user={session?.user}
+								expires={session?.expires as string}
+							/>
+						</div>
+					</body>
+				</Providers>
+			</html>
+		</>
 	);
 }
