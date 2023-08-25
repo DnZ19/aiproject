@@ -102,6 +102,33 @@ export default function Bot({ user }: Session) {
 		},
 	});
 
+	const handleClick = () => {
+		// If the input is empty, don't send a message
+		if (input.trim() === "") return;
+
+		// Create a new message object
+		const message: Message = {
+			id: nanoid(),
+			isUserMessage: true,
+			text: input,
+		};
+
+		// Invoke the sendMessage mutation
+		sendMessage(message);
+	};
+
+	const resetClick = () => {
+		messages.slice(1).forEach((message) => {
+			removeMessage(message.id);
+		});
+
+		setInput("");
+
+		setTimeout(() => {
+			textareaRef.current?.focus();
+		}, 10);
+	};
+
 	return (
 		<div className="flex flex-col items-center mt-8 w-auto">
 			{!user && (
@@ -122,9 +149,9 @@ export default function Bot({ user }: Session) {
 				</div>
 			)}
 			{user && (
-				<div className="flex flex-col items-center py-8">
+				<div className="flex flex-col items-center py-8 max-h-screen overflow-y-auto">
 					<div className="flex flex-col gap-2 justify-center items-center py-8x bg-transparent w-full max-w-8xl px-4 py-4">
-						<ChatMessages className="px-2 py-3 flex-1 bg-zinc-100 max-h-fit" />
+						<ChatMessages className="px-2 py-3 flex-1 bg-zinc-100 max-h-[calc(80vh-12rem)] overflow-y-auto border-2 border-black border-opacity-30" />
 						<div className="relative mt-4 flex-1 overflow-hidden rounded-lg border-none outline-none w-full">
 							<TextareaAutosize
 								ref={textareaRef}
@@ -148,10 +175,15 @@ export default function Bot({ user }: Session) {
 								autoFocus
 								placeholder="Ask me something...."
 								className="peer disabled:opacity-50 pr-14 pl-4 resize-none block w-full border-0 bg-zinc-100 py-1.5 text-gray-900 focus: ring-0 text-sm sm:leading-6 z-40"
-								style={{ width: "100%", maxWidth: "100%" }}
+								// style={{
+								// 	width: "100%",
+								// 	maxWidth: "100%",
+								// }}
 							/>
 							<div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
-								<kbd className="inline-flex items-center rounded border bg-white border-gray-200 px-1 font-sans text-xs text-gray-400">
+								<kbd
+									onClick={handleClick}
+									className="inline-flex items-center rounded border bg-white border-gray-200 px-1 font-sans text-xs text-gray-400 cursor-pointer">
 									{isLoading ? (
 										<Loader2 className="w-3 h-3 animate-spin" />
 									) : (
@@ -165,6 +197,11 @@ export default function Bot({ user }: Session) {
 								aria-hidden="true"
 							/>
 						</div>
+						<button
+							onClick={resetClick}
+							className="mt-4 bg-gray-200 text-gray-900 px-4 py-1 rounded-md">
+							Reset Conversation
+						</button>
 					</div>
 				</div>
 			)}

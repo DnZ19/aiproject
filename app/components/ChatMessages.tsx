@@ -3,6 +3,7 @@
 import { FC, HTMLAttributes, useContext } from "react";
 import { MessagesContext } from "../context/messages";
 import { cn } from "../lib/utils";
+import Markdown from "./Markdown";
 
 interface ChatMessageProps
 	extends HTMLAttributes<HTMLDivElement> {}
@@ -38,7 +39,7 @@ const ChatMessages: FC<ChatMessageProps> = ({
 										!message.isUserMessage,
 								}
 							)}>
-							{message.text}
+							<Markdown text={message.text} />
 						</div>
 					</div>
 				</div>
