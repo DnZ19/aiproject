@@ -32,7 +32,8 @@ export default async function RootLayout({
 				<Providers>
 					<body
 						suppressHydrationWarning={true}
-						className=" flex flex-col items-center">
+						className=" flex flex-col items-center"
+						style={{ width: "100%", maxWidth: "100%" }}>
 						<div className=" flex flex-col items-center w-auto max-w-8xl">
 							<Nav
 								user={session?.user}
