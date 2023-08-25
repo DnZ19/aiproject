@@ -124,7 +124,7 @@ export default function Bot({ user }: Session) {
 			{user && (
 				<div className="flex flex-col items-center py-8">
 					<div className="flex flex-col gap-2 justify-center items-center py-8x bg-transparent w-full max-w-8xl px-4 py-4">
-						<ChatMessages className="px-2 py-3 flex-1 bg-zinc-100 max-h-80" />
+						<ChatMessages className="px-2 py-3 flex-1 bg-zinc-100 max-h-fit" />
 						<div className="relative mt-4 flex-1 overflow-hidden rounded-lg border-none outline-none w-full">
 							<TextareaAutosize
 								ref={textareaRef}
