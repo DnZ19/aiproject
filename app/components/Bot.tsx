@@ -143,9 +143,9 @@ export default function Bot({ user }: Session) {
 					</p>
 					<br />
 					<p className="bg-zinc-100 text-gray-900 py-2 px-4 rounded-md mx-8 pb-12">
-						I have the possibily to think as an Agile Coach
-						and even help in topics like Scaling Agile and
-						Transitions, but always as Scrum Master.
+						I have the possibility to think as an Agile
+						Coach and even help in topics like Scaling Agile
+						and Transitions, but always as Scrum Master.
 						<br />
 						<br />
 						Please login with Google to make use of my
