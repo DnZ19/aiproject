@@ -18,10 +18,8 @@ export default function Nav({ user }: Session) {
 			</div>
 			<ul className="flex items-center gap-12">
 				{!user && (
-					<li className="bg-teal-950 text-white py-2 px-4 rounded-md">
-						<button onClick={() => signIn()}>
-							Sign In
-						</button>
+					<li className="bg-teal-200 text-white py-2 px-4 rounded-md">
+						<button onClick={() => signIn()}>Login</button>
 					</li>
 				)}
 				{user && (

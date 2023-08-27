@@ -131,19 +131,28 @@ export default function Bot({ user }: Session) {
 	return (
 		<div className="flex flex-col items-center mt-8 w-auto">
 			{!user && (
-				<div className="flex flex-col items-center">
-					<p className="bg-teal-600 text-white py-2 px-4 rounded-md mx-8 pb-12">
-						Lorem ipsum, dolor sit amet consectetur
-						adipisicing elit. Optio deserunt magni quis
-						quasi minus error! Odit tempora voluptatibus
-						iure assumenda ratione beatae cumque eum alias
-						blanditiis, vitae voluptas corrupti nostrum.
-						please sign in at the top or register here:
+				<div className="flex flex-col items-start max-w-md">
+					<p className="bg-zinc-100 text-gray-900 py-2 px-4 rounded-md mx-8 pb-12">
+						Hi, I am Scrumbot! I am a simple Chatbot,
+						created to help you out on some Scrum questions
+						like: how to do a planning or what can we do for
+						retro in a certain context. Just to have a
+						sparringpartner. I am trained by some Sr. Scrum
+						Masters and Agile Coaches and they keep me
+						sharper every week!
+					</p>
+					<br />
+					<p className="bg-zinc-100 text-gray-900 py-2 px-4 rounded-md mx-8 pb-12">
+						I have the possibily to think as an Agile Coach
+						and even help in topics like Scaling Agile and
+						Transitions, but always as Scrum Master.
+						<br />
+						<br />
+						Please login with Google to make use of my
+						service...
 					</p>
 					<div className="bg-teal-950 text-white py-2 px-4 rounded-md mt-4 mx-8">
-						<button onClick={() => signIn()}>
-							Register
-						</button>
+						<button onClick={() => signIn()}>Login</button>
 					</div>
 				</div>
 			)}
