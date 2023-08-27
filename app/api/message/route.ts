@@ -9,7 +9,7 @@ import { MessageArraySchema } from "@/app/lib/validators/message";
 export async function POST(req: Request) {
 	const { messages } = await req.json();
 
-	console.log("Received Messages:", messages);
+	//console.log("Received Messages:", messages);
 
 	const parsedMessages = MessageArraySchema.parse(messages);
 

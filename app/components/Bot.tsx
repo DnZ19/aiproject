@@ -113,7 +113,6 @@ export default function Bot({ user }: Session) {
 			text: input,
 		};
 
-		// Invoke the sendMessage mutation
 		sendMessage(message);
 	};
 
@@ -175,10 +174,6 @@ export default function Bot({ user }: Session) {
 								autoFocus
 								placeholder="Ask me something...."
 								className="peer disabled:opacity-50 pr-14 pl-4 resize-none block w-full border-0 bg-zinc-100 py-1.5 text-gray-900 focus: ring-0 text-sm sm:leading-6 z-40"
-								// style={{
-								// 	width: "100%",
-								// 	maxWidth: "100%",
-								// }}
 							/>
 							<div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
 								<kbd

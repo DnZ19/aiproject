@@ -12,8 +12,8 @@ export default function Nav({ user }: Session) {
 				<Image
 					src={AiLogo}
 					alt="AI Logo"
-					width={48}
-					height={48}
+					width={60}
+					height={60}
 				/>
 			</div>
 			<ul className="flex items-center gap-12">
