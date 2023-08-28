@@ -7,7 +7,7 @@ import AiLogo from "public/bot.png";
 
 export default function Nav({ user }: Session) {
 	return (
-		<nav className="flex justify-between items-center py-8 w-full px-8">
+		<nav className="flex justify-between items-center py-8 w-full px-8 border-b-2 border-teal-700 sticky block">
 			<div>
 				<Image
 					src={AiLogo}
