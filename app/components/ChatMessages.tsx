@@ -35,7 +35,7 @@ const ChatMessages: FC<ChatMessageProps> = ({
 								{
 									"bg-blue-300 text-gray-900 px-4 py-1 rounded-md w-40":
 										message.isUserMessage,
-									"bg-gray-200 text-gray-900 px-4 py-1 rounded-md":
+									"bg-gray-200 text-gray-900 px-4 py-1 mt-4 rounded-md":
 										!message.isUserMessage,
 								}
 							)}>

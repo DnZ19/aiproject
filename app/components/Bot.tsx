@@ -116,6 +116,25 @@ export default function Bot({ user }: Session) {
 		sendMessage(message);
 	};
 
+	const retro =
+		"Ask me Three analytical questions first, to give the best retrospective in Scrum.";
+	const planning =
+		"Ask me Three analytical questions first, to give the best planning tip in Scrum.";
+	const refinement =
+		"Ask me Three analytical questions first, to give the best refinement in Scrum.";
+	const review =
+		"Ask me Three analytical questions first, to give the best review in Scrum.";
+
+	const handleQuestion = (text: string) => {
+		const message: Message = {
+			id: nanoid(),
+			isUserMessage: true,
+			text: text,
+		};
+
+		sendMessage(message);
+	};
+
 	const resetClick = () => {
 		messages.slice(1).forEach((message) => {
 			removeMessage(message.id);
@@ -129,7 +148,7 @@ export default function Bot({ user }: Session) {
 	};
 
 	return (
-		<div className="flex flex-col items-center mt-8 w-auto">
+		<div className="flex flex-col items-center mt-8 w-auto h-auto overflow-y-auto">
 			{!user && (
 				<div className="flex flex-col items-start max-w-md">
 					<p className="bg-zinc-200 text-gray-900 px-4 rounded-md mx-8 py-8 pb-12 border-2 border-black border-opacity-30">
@@ -149,8 +168,8 @@ export default function Bot({ user }: Session) {
 			{user && (
 				<div className="flex flex-col items-center py-8 max-h-screen overflow-y-auto">
 					<div className="flex flex-col gap-2 justify-center items-center py-8x bg-transparent w-full max-w-8xl px-4 py-4">
-						<ChatMessages className="px-2 py-3 flex-1 bg-zinc-300 max-h-[calc(80vh-12rem)] overflow-y-auto border-2 border-black border-opacity-30 rounded-md" />
-						<div className="relative mt-4 flex-1 overflow-hidden rounded-md border-none outline-none w-full">
+						<ChatMessages className="px-2 py-6 flex-1 bg-zinc-300 max-h-80 overflow-y-auto border-2 border-black border-opacity-30 rounded-md" />
+						<div className="relative mt-4 flex-1 overflow-hidden rounded-md border-none outline-none w-full max-h-20">
 							<TextareaAutosize
 								ref={textareaRef}
 								rows={2}
@@ -174,7 +193,7 @@ export default function Bot({ user }: Session) {
 								placeholder="Ask me something...."
 								className="peer disabled:opacity-50 pr-14 pl-4 resize-none block w-full border-0 bg-zinc-200 py-1.5 text-gray-900 focus: ring-0 text-sm sm:leading-6 z-40"
 							/>
-							<div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+							{/* <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
 								<kbd
 									onClick={handleClick}
 									className="inline-flex items-center rounded border bg-white border-gray-200 px-1 font-sans text-xs text-gray-400 cursor-pointer">
@@ -184,23 +203,60 @@ export default function Bot({ user }: Session) {
 										<CornerDownLeft className="w-3 h-3" />
 									)}
 								</kbd>
-							</div>
+							</div> */}
 
 							<div
-								className="absolute inset-x-0 bottom-0 border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-indigo-600 z-40"
+								className="absolute inset-x-0 bottom-auto border-t border-gray-300 peer-focus:border-t-2 peer-focus:border-indigo-600 z-40"
 								aria-hidden="true"
 							/>
 						</div>
 						<div className="flex items-center justify-between gap-12">
 							<button
 								onClick={resetClick}
-								className="mt-4 bg-gray-500 text-gray-200 px-4 py-1 rounded-md">
+								className="bg-red-700 text-gray-200 px-4 py-1 rounded-md opacity-90">
 								Reset Conversation
 							</button>
 							<button
 								onClick={handleClick}
-								className="mt-4 bg-gray-200 text-gray-900 px-4 py-1 rounded-md">
-								Ask!
+								className="bg-gray-600 text-gray-200 px-4 py-1 rounded-md">
+								{isLoading ? (
+									<Loader2 className="w-8 h-6 animate-spin" />
+								) : (
+									"Ask me!"
+								)}
+							</button>
+						</div>
+						<div className="flex flex-col flex-wrap items-center border-2 border-gray-900 opacity-50 p-2 rounded-md w-full mx-12 mt-12">
+							<p className="text-gray-800 w-40">
+								Give me the best:
+							</p>
+							<button
+								onClick={() => {
+									handleQuestion(retro);
+								}}
+								className="mt-4 bg-gray-900 text-gray-200 px-4 py-1 rounded-md w-full">
+								Retrospective!
+							</button>
+							<button
+								onClick={() => {
+									handleQuestion(planning);
+								}}
+								className="mt-4 bg-gray-900 text-gray-200 px-4 py-1 rounded-md w-full">
+								Planning!
+							</button>
+							<button
+								onClick={() => {
+									handleQuestion(refinement);
+								}}
+								className="mt-4 bg-gray-900 text-gray-200 px-4 py-1 rounded-md w-full">
+								Refinement!
+							</button>
+							<button
+								onClick={() => {
+									handleQuestion(review);
+								}}
+								className="mt-4 bg-gray-900 text-gray-200 px-4 py-1 rounded-md w-full">
+								Review!
 							</button>
 						</div>
 					</div>
